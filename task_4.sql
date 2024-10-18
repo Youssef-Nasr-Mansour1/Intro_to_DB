@@ -15,3 +15,9 @@ ON
 WHERE 
     T.TABLE_SCHEMA = 'alx_book_store'
     AND T.TABLE_NAME = 'books';
+SET @table_name = 'books';
+
+SET @sql = CONCAT('SHOW CREATE TABLE ', @table_name);
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
